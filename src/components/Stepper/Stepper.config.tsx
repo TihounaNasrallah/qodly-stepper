@@ -35,10 +35,12 @@ export default {
     inactiveColor: '#c7cad4',
     stepStyle: 'text',
     labelPosition: 'right',
+    linear: false,
   },
 } as T4DComponentConfig<IStepperProps>;
 
 export interface IStepperProps extends webforms.ComponentProps {
+  linear: boolean;
   steps: { title: string }[];
   activeColor: string;
   inactiveColor: string;

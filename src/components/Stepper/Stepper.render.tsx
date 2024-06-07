@@ -7,6 +7,7 @@ import { BsFillInfoCircleFill } from 'react-icons/bs';
 import { IStepperProps } from './Stepper.config';
 
 const Stepper: FC<IStepperProps> = ({
+  linear,
   labelPosition,
   steps = [],
   stepStyle,
@@ -18,28 +19,6 @@ const Stepper: FC<IStepperProps> = ({
 }) => {
   const { connect } = useRenderer();
   const { resolver } = useEnhancedEditor(selectResolver);
-
-  // const [value, setValue] = useState();
-  // const {
-  //   sources: { datasource: ds },
-  // } = useSources();
-
-  // useEffect(() => {
-  //   if (!ds) return;
-
-  //   const listener = async (/* event */) => {
-  //     const v = await ds.getValue();
-  //     setValue(v);
-  //   };
-
-  //   listener();
-
-  //   ds.addListener('changed', listener);
-
-  //   return () => {
-  //     ds.removeListener('changed', listener);
-  //   };
-  // }, [ds]);
 
   const [currentStep, setCurrentStep] = useState(0);
 
@@ -94,7 +73,7 @@ const Stepper: FC<IStepperProps> = ({
                 <div className={`h-full px-3 flex ${labelPos} items-center justify-center`}>
                   <div
                     className="nav-circle mx-1 rounded-full cursor-pointer font-semibold"
-                    onClick={() => setCurrentStep(index)}
+                    onClick={linear ? () => setCurrentStep(0) : () => setCurrentStep(index)}
                     style={{
                       backgroundColor: activeCol(index),
                       color: currentStep === index ? 'white' : 'black',
@@ -139,7 +118,8 @@ const Stepper: FC<IStepperProps> = ({
               <div className="buttons flex justify-around">
                 {currentStep > 0 && (
                   <button
-                    className="w-24 h-8 rounded-md bg-blue-500 text-white font-semibold"
+                    className="w-24 h-8 text-white font-semibold"
+                    style={{ backgroundColor: activeCol(index) }}
                     onClick={goToPreviousStep}
                   >
                     Back
@@ -147,7 +127,8 @@ const Stepper: FC<IStepperProps> = ({
                 )}
                 {currentStep < steps.length - 1 && (
                   <button
-                    className="w-24 h-8 rounded-md bg-blue-500 text-white font-semibold"
+                    className="w-24 h-8 text-white font-semibold"
+                    style={{ backgroundColor: activeCol(index) }}
                     onClick={goToNextStep}
                   >
                     Next
