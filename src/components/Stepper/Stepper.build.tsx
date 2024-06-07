@@ -112,7 +112,7 @@ const Stepper: FC<IStepperProps> = ({
               <div className="buttons flex justify-around">
                 {currentStep > 0 && (
                   <button
-                    className="w-24 h-8 text-white font-semibold"
+                    className="back-btn w-24 h-8 text-white font-semibold"
                     style={{ backgroundColor: activeCol(index) }}
                     onClick={goToPreviousStep}
                   >
@@ -121,7 +121,7 @@ const Stepper: FC<IStepperProps> = ({
                 )}
                 {currentStep < steps.length - 1 && (
                   <button
-                    className="w-24 h-8 text-white font-semibold"
+                    className="next-btn w-24 h-8 text-white font-semibold"
                     style={{ backgroundColor: activeCol(index) }}
                     onClick={goToNextStep}
                   >

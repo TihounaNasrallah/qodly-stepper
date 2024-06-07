@@ -118,7 +118,7 @@ const Stepper: FC<IStepperProps> = ({
               <div className="buttons flex justify-around">
                 {currentStep > 0 && (
                   <button
-                    className="w-24 h-8 text-white font-semibold"
+                    className="back-btn w-24 h-8 text-white font-semibold"
                     style={{ backgroundColor: activeCol(index) }}
                     onClick={goToPreviousStep}
                   >
@@ -127,7 +127,7 @@ const Stepper: FC<IStepperProps> = ({
                 )}
                 {currentStep < steps.length - 1 && (
                   <button
-                    className="w-24 h-8 text-white font-semibold"
+                    className="next-btn w-24 h-8 text-white font-semibold"
                     style={{ backgroundColor: activeCol(index) }}
                     onClick={goToNextStep}
                   >
@@ -139,9 +139,9 @@ const Stepper: FC<IStepperProps> = ({
           ))}
         </>
       ) : (
-        <div className="no-steps flex h-24 w-full flex-col items-center justify-center rounded-lg border bg-purple-400 py-4 text-white">
-          <BsFillInfoCircleFill className="mb-1 h-8 w-8" />
-          <p>Please create some steps</p>
+        <div className="no-steps flex h-24 w-full flex-col items-center justify-center rounded-lg border-2 border-red-700 py-4 text-red-700">
+          <BsFillInfoCircleFill className="mb-1 h-7 w-7 text-red-700" />
+          <p className="font-semibold">No Steps</p>
         </div>
       )}
     </div>
