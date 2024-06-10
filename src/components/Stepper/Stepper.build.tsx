@@ -25,6 +25,11 @@ const Stepper: FC<IStepperProps> = ({
 
   const [currentStep, setCurrentStep] = useState(0);
 
+  // ? Provisoire
+  if (activeColor === inactiveColor) {
+    inactiveColor = colorToHex(inactiveColor) + '70';
+  }
+
   const activeCol = (index: number) => (currentStep === index ? activeColor : inactiveColor);
   const isFinalStep = (index: number) => index === steps.length - 1;
 
