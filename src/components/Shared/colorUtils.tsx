@@ -1,5 +1,10 @@
 import { TinyColor, random } from '@ctrl/tinycolor';
 
+export const lightColor = (color: string): string => {
+  const colorObj = new TinyColor(color);
+  return colorObj.isLight() ? '#fff' : '#000';
+};
+
 export const randomColor = (): string => {
   const color = random();
   return color.toHexString();
