@@ -64,8 +64,6 @@ const commonSettings: TSetting[] = [
   },
 ];
 
-console.log(commonSettings);
-
 const Settings: TSetting[] = [
   {
     key: 'properties',
